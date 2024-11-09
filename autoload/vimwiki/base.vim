@@ -1865,13 +1865,13 @@ function! s:input_rename_file() abort
   " Returns: '' if fails
   " Called: rename_file
   " Ask confirmation
-  let val = input('Rename "'.expand('%:t:r').'" [y]es/[N]o? ')
-  if val !~? '^y'
-    return
-  endif
+  " let val = input('Rename "'.expand('%:t:r').'" [y]es/[N]o? ')
+  " if val !~? '^y'
+  "   return
+  " endif
 
   " Ask new name
-  let new_link = input('Enter new name: ')
+  let new_link = input('Enter new name: ', expand('%:t:r'))
 
   " Guard: Check link
   if new_link =~# '[/\\]'

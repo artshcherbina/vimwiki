@@ -2,16 +2,15 @@
 " Vimwiki filetype plugin file
 " Home: https://github.com/vimwiki/vimwiki/
 
-
 " Clause: load only once per buffer
 if exists('b:did_ftplugin')
   finish
 endif
 let b:did_ftplugin = 1  " Don't load another plugin for this buffer
 
-if vimwiki#vars#get_global('conceallevel') && exists('+conceallevel')
-  let &l:conceallevel = vimwiki#vars#get_global('conceallevel')
-endif
+" if vimwiki#vars#get_global('conceallevel') && exists('+conceallevel')
+"   let &l:conceallevel = vimwiki#vars#get_global('conceallevel')
+" endif
 
 " This is for GOTO FILE: gf
 execute 'setlocal suffixesadd='.vimwiki#vars#get_wikilocal('ext')
@@ -457,13 +456,13 @@ vnoremap <script><buffer> <Plug>VimwikiColorize
 
 " Declare Map: default links key mappings
 if str2nr(vimwiki#vars#get_global('key_mappings').links)
-  call vimwiki#u#map_key('n', '<CR>', '<Plug>VimwikiFollowLink')
-  call vimwiki#u#map_key('n', '<S-CR>', '<Plug>VimwikiSplitLink')
-  call vimwiki#u#map_key('n', '<C-CR>', '<Plug>VimwikiVSplitLink')
-  call vimwiki#u#map_key('n', '<M-CR>', '<Plug>VimwikiBaddLink')
-  call vimwiki#u#map_key('n', '+', '<Plug>VimwikiNormalizeLink')
-  call vimwiki#u#map_key('v', '+', '<Plug>VimwikiNormalizeLinkVisual')
-  call vimwiki#u#map_key('v', '<CR>', '<Plug>VimwikiNormalizeLinkVisualCR')
+  " call vimwiki#u#map_key('n', '<CR>', '<Plug>VimwikiFollowLink')
+  " call vimwiki#u#map_key('n', '<S-CR>', '<Plug>VimwikiSplitLink')
+  " call vimwiki#u#map_key('n', '<C-CR>', '<Plug>VimwikiVSplitLink')
+  " call vimwiki#u#map_key('n', '<M-CR>', '<Plug>VimwikiBaddLink')
+  " call vimwiki#u#map_key('n', '+', '<Plug>VimwikiNormalizeLink')
+  " call vimwiki#u#map_key('v', '+', '<Plug>VimwikiNormalizeLinkVisual')
+  " call vimwiki#u#map_key('v', '<CR>', '<Plug>VimwikiNormalizeLinkVisualCR')
   call vimwiki#u#map_key('n', '<D-CR>', '<Plug>VimwikiTabDropLink')
   call vimwiki#u#map_key('n', '<C-S-CR>', '<Plug>VimwikiTabDropLink', 1)
   call vimwiki#u#map_key('n', '<BS>', '<Plug>VimwikiGoBackLink')
@@ -545,23 +544,23 @@ if str2nr(vimwiki#vars#get_global('key_mappings').lists)
   call vimwiki#u#map_key('v', 'gln', '<Plug>VimwikiIncrementListItem', 1)
   call vimwiki#u#map_key('n', 'glp', '<Plug>VimwikiDecrementListItem')
   call vimwiki#u#map_key('v', 'glp', '<Plug>VimwikiDecrementListItem', 1)
-  call vimwiki#u#map_key('i', '<C-D>', '<Plug>VimwikiDecreaseLvlSingleItem')
-  call vimwiki#u#map_key('i', '<C-T>', '<Plug>VimwikiIncreaseLvlSingleItem')
+  call vimwiki#u#map_key('i', '<tab>', '<Plug>VimwikiIncreaseLvlSingleItem')
+  call vimwiki#u#map_key('i', '<s-tab>', '<Plug>VimwikiDecreaseLvlSingleItem')
   call vimwiki#u#map_key('n', 'glh', '<Plug>VimwikiDecreaseLvlSingleItem', 1)
   call vimwiki#u#map_key('n', 'gll', '<Plug>VimwikiIncreaseLvlSingleItem', 1)
   call vimwiki#u#map_key('n', 'gLh', '<Plug>VimwikiDecreaseLvlWholeItem')
   call vimwiki#u#map_key('n', 'gLH', '<Plug>VimwikiDecreaseLvlWholeItem', 1)
   call vimwiki#u#map_key('n', 'gLl', '<Plug>VimwikiIncreaseLvlWholeItem')
   call vimwiki#u#map_key('n', 'gLL', '<Plug>VimwikiIncreaseLvlWholeItem', 1)
-  call vimwiki#u#map_key('i', '<C-L><C-J>', '<Plug>VimwikiListNextSymbol')
-  call vimwiki#u#map_key('i', '<C-L><C-K>', '<Plug>VimwikiListPrevSymbol')
-  call vimwiki#u#map_key('i', '<C-L><C-M>', '<Plug>VimwikiListToggle')
+  " call vimwiki#u#map_key('i', '<C-L><C-J>', '<Plug>VimwikiListNextSymbol')
+  " call vimwiki#u#map_key('i', '<C-L><C-K>', '<Plug>VimwikiListPrevSymbol')
+  " call vimwiki#u#map_key('i', '<C-L><C-M>', '<Plug>VimwikiListToggle')
   call vimwiki#u#map_key('n', 'glr', '<Plug>VimwikiRenumberList')
   call vimwiki#u#map_key('n', 'gLr', '<Plug>VimwikiRenumberAllLists')
   call vimwiki#u#map_key('n', 'gLR', '<Plug>VimwikiRenumberAllLists', 1)
   call vimwiki#u#map_key('n', 'gl', '<Plug>VimwikiRemoveSingleCB')
   call vimwiki#u#map_key('n', 'gL', '<Plug>VimwikiRemoveCBInList')
-  call vimwiki#u#map_key('n', 'o', '<Plug>VimwikiListo')
+  " call vimwiki#u#map_key('n', 'o', '<Plug>VimwikiListo')
   call vimwiki#u#map_key('n', 'O', '<Plug>VimwikiListO')
 
   " Set lists_return to 0, if you don't want <CR> mapped to VimwikiReturn
@@ -632,8 +631,8 @@ inoremap <silent><buffer><expr> <Plug>VimwikiTableNextCell
 inoremap <silent><buffer><expr> <Plug>VimwikiTablePrevCell
     \ vimwiki#tbl#kbd_shift_tab()
 if str2nr(vimwiki#vars#get_global('key_mappings').table_mappings)
-  call vimwiki#u#map_key('i', '<Tab>', '<Plug>VimwikiTableNextCell')
-  call vimwiki#u#map_key('i', '<S-Tab>', '<Plug>VimwikiTablePrevCell')
+  " call vimwiki#u#map_key('i', '<Tab>', '<Plug>VimwikiTableNextCell')
+  " call vimwiki#u#map_key('i', '<S-Tab>', '<Plug>VimwikiTablePrevCell')
 endif
 
 " <Plug> table formatting definitions
@@ -654,8 +653,8 @@ nnoremap <silent><script><buffer> <Plug>VimwikiTableMoveColumnRight
 if str2nr(vimwiki#vars#get_global('key_mappings').table_format)
   call vimwiki#u#map_key('n', 'gqq', '<Plug>VimwikiTableAlignQ')
   call vimwiki#u#map_key('n', 'gq1', '<Plug>VimwikiTableAlignQ1')
-  call vimwiki#u#map_key('n', 'gww', '<Plug>VimwikiTableAlignW')
-  call vimwiki#u#map_key('n', 'gw1', '<Plug>VimwikiTableAlignW1')
+  " call vimwiki#u#map_key('n', 'gww', '<Plug>VimwikiTableAlignW')
+  " call vimwiki#u#map_key('n', 'gw1', '<Plug>VimwikiTableAlignW1')
   call vimwiki#u#map_key('n', '<A-Left>', '<Plug>VimwikiTableMoveColumnLeft')
   call vimwiki#u#map_key('n', '<A-Right>', '<Plug>VimwikiTableMoveColumnRight')
 endif
@@ -744,8 +743,8 @@ nnoremap <silent><buffer> <Plug>VimwikiGoToPrevSiblingHeader
 
 " Declare Map Header: default header key mappings
 if str2nr(vimwiki#vars#get_global('key_mappings').headers)
-  call vimwiki#u#map_key('n', '=', '<Plug>VimwikiAddHeaderLevel')
-  call vimwiki#u#map_key('n', '-', '<Plug>VimwikiRemoveHeaderLevel')
+  " call vimwiki#u#map_key('n', '=', '<Plug>VimwikiAddHeaderLevel')
+  " call vimwiki#u#map_key('n', '-', '<Plug>VimwikiRemoveHeaderLevel')
   call vimwiki#u#map_key('n', ']u', '<Plug>VimwikiGoToParentHeader')
   call vimwiki#u#map_key('n', '[u', '<Plug>VimwikiGoToParentHeader', 1)
   call vimwiki#u#map_key('n', ']]', '<Plug>VimwikiGoToNextHeader')
@@ -790,3 +789,6 @@ if vimwiki#vars#get_wikilocal('auto_generate_tags')
     au BufWritePre <buffer> call vimwiki#tags#generate_tags(0)
   augroup END
 endif
+
+" so ~/.vim/ftplugin/vimwiki.vim
+setlocal nohls

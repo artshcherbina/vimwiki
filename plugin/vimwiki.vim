@@ -3,7 +3,6 @@
 " Home: https://github.com/vimwiki/vimwiki/
 " GetLatestVimScripts: 2226 1 :AutoInstall: vimwiki
 
-
 " Clause: load only once
 if exists('g:loaded_vimwiki') || &compatible
   finish
@@ -196,9 +195,9 @@ function! s:set_windowlocal_options() abort
     endif
   endif
 
-  if exists('+conceallevel')
-    let &l:conceallevel = vimwiki#vars#get_global('conceallevel')
-  endif
+  " if exists('+conceallevel')
+  "   let &l:conceallevel = vimwiki#vars#get_global('conceallevel')
+  " endif
 
   if vimwiki#vars#get_global('auto_chdir')
     exe 'lcd' vimwiki#vars#get_wikilocal('path')
@@ -480,3 +479,4 @@ endif
 
 " Restore peace in the galaxy
 let &cpoptions = s:old_cpo
+

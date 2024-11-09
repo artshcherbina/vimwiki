@@ -227,7 +227,6 @@ function! vimwiki#u#map_key(mode, key, plug, ...) abort
   endif
 endfunction
 
-
 function! vimwiki#u#is_codeblock(lnum) abort
   " Returns: 1 if line is a code block or math block
   "
